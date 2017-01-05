@@ -17,7 +17,8 @@ COPY . /app/
 # Set Python-related environment variables to reduce annoying-ness
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONPATH=.
 
 USER app
 
-CMD python processor/app.py
+CMD python crashmill/app.py

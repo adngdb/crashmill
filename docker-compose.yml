@@ -37,4 +37,3 @@ services:
       - PROCESSOR_ENV=${PROCESSOR_ENV}
     ports:
       - "8000:8000"
-    command: ./bin/run_web.sh

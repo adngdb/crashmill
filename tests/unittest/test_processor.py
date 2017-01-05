@@ -42,6 +42,7 @@ class TestProcessor:
     @mock.patch('crashmill.processor.Crash')
     def test_run(self, m_crash):
         calls = []
+
         def save_calls(*args, **kwargs):
             calls.append(args[0])
             return mock.Mock()

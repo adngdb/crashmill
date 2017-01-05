@@ -9,7 +9,7 @@ class FakeSourceStore:
             'Foo': 'bar',
         }
 
-    def get_raw_dumps(self, crash_id):
+    def get_dumps(self, crash_id):
         return {}
 
     def get_processed_crash(self, crash_id):
@@ -24,17 +24,16 @@ class FakeDestStore:
         if crash_id not in self._stored:
             self._stored[crash_id] = {}
 
-    def save_raw_crash(self, crash_id, raw_crash):
+    def save_crash(
+        self,
+        crash_id='',
+        raw_crash=None,
+        dumps=None,
+        processed_crash=None,
+        **kwargs
+    ):
         self._make_crash_document(crash_id)
         self._stored[crash_id]['raw_crash'] = raw_crash
-        return True
-
-    def save_raw_dumps(self, crash_id, dumps):
-        self._make_crash_document(crash_id)
         self._stored[crash_id]['dumps'] = dumps
-        return True
-
-    def save_processed_crash(self, crash_id, processed_crash):
-        self._make_crash_document(crash_id)
         self._stored[crash_id]['processed_crash'] = processed_crash
         return True
